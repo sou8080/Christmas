@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Christmas</title>
+   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/128/6235/6235300.png">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Font1|Font2|Font3" />
+
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Chiller', sans-serif;
+      background-image: url('https://img.freepik.com/premium-photo/dark-abstract-winter-forest-background_129911-2354.jpg?w=826'); /* Add your background image path */
+      background-size: cover;
+      background-position: center;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #ffffff; /* Text color */
+      background-color: rgba(0, 0, 0, 0.7); /* Adjust opacity here */
+      overflow: hidden; /* Prevents scrollbar when snowflakes overflow */
+    }
+
+    .content {
+      text-align: center;
+      position: relative;
+    }
+
+    h2 {
+      font-size: 6rem;
+      margin-bottom: 20px;
+      margin-top: 0;
+      text-shadow: 2px 2px 4px #000;
+      color: #ff6600;
+      animation: spookyEffect 2s infinite alternate; /* Adding an animation */
+    }
+
+ p {
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      margin-top: 0;
+      color: #ffcc00;
+      text-shadow: 1px 1px 2px #000;
+    }
+
+
+     button {
+      padding: 10px 20px;
+      font-family: 'Chiller', sans-serif;
+      font-size: 1.8rem;
+      border: none;
+      background-color: #7f7f7f; /* Darker background color for a spooky effect */
+      color: white;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      border-radius: 25px; /* Adjust border-radius for the button shape */
+      box-shadow: 0 0 10px #7f7f7f; /* Add a subtle shadow effect */
+    }
+
+    button:hover {
+      background-color: #e74c3c;
+    }
+
+    /* Snowflake animation */
+    .snowflake {
+      position: absolute;
+      border-radius: 50%;
+      background-color: #fff;
+      pointer-events: none; /* Prevents snowflakes from being clickable */
+      animation: snowfall linear infinite;
+      z-index: 1; /* Ensure snowflakes appear above other content */
+      width: 5px; /* Adjust snowflake width */
+      height: 5px; /* Adjust snowflake height */
+    }
+
+    @keyframes snowfall {
+      0% {
+        transform: translateY(0);
+      }
+      100% {
+        transform: translateY(100vh);
+      }
+    }
+	 @keyframes spookyEffect {
+      from {
+        text-shadow: 2px 2px 4px #000;
+      }
+      to {
+        text-shadow: 4px 4px 6px #ff6600, -4px -4px 6px #ff6600;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="snow-container">
+    <!-- Snowflake elements -->
+    <script>
+      const numberOfSnowflakes = 50; // Adjust the number of snowflakes
+      const container = document.querySelector('.snow-container');
+
+      for (let i = 0; i < numberOfSnowflakes; i++) {
+        const snowflake = document.createElement('div');
+        snowflake.classList.add('snowflake');
+        snowflake.style.left = `${Math.random() * 100}vw`; // Random horizontal position
+        snowflake.style.animationDuration = `${Math.random() * 5 + 3}s`; // Random falling speed
+        snowflake.style.animationDelay = `${Math.random() * 2}s`; // Random animation delay
+        container.appendChild(snowflake);
+      }
+    </script>
+
+    <div class="content">
+      <h2>Merry Christmas</h2>
+	<p>Namrata</p>
+      <p>suprise k liye niche button pe click karo</p>
+      <a href="christmas.html"><button>Click Here</button></a>
+    </div>
+  </div>
+</body>
+</html>

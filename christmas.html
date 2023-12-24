@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Surprise</title>
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/275/275755.png">
+  <style>
+    body, html {
+      height: 100%;
+      margin: 0;
+      overflow: hidden; /* Prevent scrollbars due to the large background */
+    }
+
+    .background-gifs {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none; /* Allows interaction with elements behind the GIFs */
+    }
+
+    .gif-container {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .gif-container img {
+      min-width: 60%;
+      min-height: 60%;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -1; /* Places the GIFs behind other content */
+      animation: rotate 5s infinite;
+    }
+      .lightning {
+            position: absolute;
+            width: 3px;
+            height: 100px;
+            background-color: yellow;
+            opacity: 0;
+            animation: lightning 0.5s linear forwards;
+        }
+
+    /* Additional styles for your surprise content */
+    .surprise-content {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      color: #fff;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+   @keyframes lightning {
+            0% {
+                transform: translateY(-100px);
+                opacity: 0;
+            }
+
+            50% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh);
+                opacity: 0;
+            }
+        }
+   
+  </style>
+</head>
+<body>
+   <script>
+        const createLightning = () => {
+            const lightning = document.createElement('div');
+            lightning.classList.add('lightning');
+            lightning.style.left = `${Math.random() * window.innerWidth}px`;
+            document.body.appendChild(lightning);
+
+            setTimeout(() => {
+                lightning.remove();
+            }, 2000); // Adjust the duration of lightning visibility
+        };
+
+        const generateLightning = () => {
+            setInterval(() => {
+                createLightning();
+            }, 200); // Adjust the frequency of lightning bolts
+        };
+
+        generateLightning();
+    </script>
+  <div class="background-gifs">
+    <!-- Add multiple divs here with different GIFs -->
+    <div class="gif-container">
+      <img src="https://i.pinimg.com/originals/04/a9/1d/04a91db6d01ab04bc50418c51c3096b4.gif">
+    </div>
+    <!-- Add more divs for additional GIFs -->
+
+    
+  </div>
+</body>
+</html>
